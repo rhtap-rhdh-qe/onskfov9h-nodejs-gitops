@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: onskfov9h-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: onskfov9h-nodejs 
+  name: onskfov9h-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: onskfov9h-nodejs
+    weight: 100 
